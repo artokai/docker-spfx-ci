@@ -12,20 +12,41 @@ your builds since the dependencies won't be downloaded again with every build.
 
 ## Sample setup for Gitlab
 
+The following CI configuration for GitLab utilizes the predownloaded spfx dependencies 
+in the docker image by symlinking it in the project directory. Project specific dependencies
+are cached in a local `.node_cache` directory which should be then passed between different
+build by GitLab.
+
+To configure the continuous integration in GitLab, just place the configuration settings in a file
+called `.gitlab-ci-yml' in your project root.
+
 ```
 image: artokai/spfx-ci
 
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - .node_cache/
+
+stages:
+  - build
+  - test
+
 before_script:
   - ln -s /var/spfx_precache/node_modules/ node_modules
+  - mkdir -p .node_cache
   - npm prune
-  - npm install --no-optional
+  - npm install --no-optional --cache .node_cache --cache-min Infinity
 
-build:
+execute-build:
+  stage: build
   script:
   - gulp build
 
-test:
+execute-test:
+  stage: test
   script:
   - gulp test
+
 
 ```
