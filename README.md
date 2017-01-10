@@ -7,8 +7,10 @@ symlink to your project directory with `ln -s /var/spfx_precache/node_modules/ n
 your builds since the dependencies won't be downloaded again with every build. 
 
 ## Available tags
-- **latest**: SharePoint Framework dependencies for the [developer preview drop 6](https://github.com/SharePoint/sp-dev-docs/wiki/Release-Notes-Drop-6)
+- **latest**: SharePoint Framework dependencies for the [developer preview RC0 drop](https://github.com/SharePoint/sp-dev-docs/wiki/Release-Notes-RC0)
+- **drop-rc0**: SharePoint Framework dependencies for the [developer preview RC0 drop](https://github.com/SharePoint/sp-dev-docs/wiki/Release-Notes-RC0)
 - **drop-6**: SharePoint Framework dependencies for the [developer preview drop 6](https://github.com/SharePoint/sp-dev-docs/wiki/Release-Notes-Drop-6)
+- **dev**: Unstable release for testing purposes
 
 ## Sample setup for Gitlab
 
