@@ -5,7 +5,7 @@ MAINTAINER arto.kaitosaari@gmail.com
 
 # Update npm, gulp and spfx yeoman generator
 RUN npm i -g npm && \
-    npm i -g gulp yo @microsoft/generator-sharepoint && \
+    npm i -g gulp yo @microsoft/generator-sharepoint@1.0.0 && \
     mkdir -p /var/spfx_precache
 
 # Cache spfx dependencies 
